@@ -1,23 +1,13 @@
-import React from 'react';
+import React from "react";
 interface displayAttributesProps {
-    jobAttributes: any,
-   
-};
-
-function DisplayAttributes (props:displayAttributesProps):JSX.Element {
-
-    return(
-        
-        <div >
-           
-          <h4> Attributes :</h4> 
-                       
-
-
-        
-            </div>
-        
-        
-    );    
+  jobAttributes: any;
 }
-export default DisplayAttributes ; 
+
+function DisplayAttributes(props: displayAttributesProps): JSX.Element {
+  return (
+    <div>
+      <h4> Attributes :</h4>
+    </div>
+  );
+}
+export default DisplayAttributes;
