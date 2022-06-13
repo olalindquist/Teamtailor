@@ -1,7 +1,5 @@
 import React from "react";
 import { useState } from "react";
-import DisplayData from "./DisplayData";
-import DisplayLinks from "./DisplayLinks";
 import JobListHandler from "./JobListHandler";
 import MemoryHandler from "./MemoryHandler";
 
@@ -11,7 +9,7 @@ function JobViewer(): JSX.Element {
   const [gotCurrentJob, setGotCurrentJob] = useState<boolean>(false);
   const [jobPointer, setJobPointer] = useState<number>(0);
   const [memory, setMemory] = useState<any[]>([]);
-  const [gotData, setGotData] = useState<any[]>([]);
+ 
 
     function setCurrentJobTo(job: any) {
 
@@ -56,7 +54,7 @@ function JobViewer(): JSX.Element {
   }
 
   function previousJob(): void {
-    if (jobPointer != 0) {
+    if (jobPointer !== 0) {
       let newval = jobPointer - 1;
       setJobPointer(newval);
       setCurrentJob(jobdata.data[jobPointer]);
@@ -84,23 +82,6 @@ function JobViewer(): JSX.Element {
         setGotCurrentJob(true);
       })
       .catch((error) => console.log("error", error));
-  }
-
-  function show(): JSX.Element {
-    return (
-      <div>
-        {jobdata?.data.map((s: any) => {
-          return (
-            <div>
-              <DisplayData jobdata={s.id} />
-              <DisplayLinks jobLinks={s.links} />
-              <DisplayLinks jobLinks={s.attributes} />
-            </div>
-          );
-        })}
-        )
-      </div>
-    );
   }
 
   return (
